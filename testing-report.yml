@@ -1,0 +1,112 @@
+---
+- summary: |
+    Регистрации пользователя
+  status: pass
+
+- summary: |
+    Указание никнейма
+  status: pass
+ 
+- summary: |
+    Вход пользователя
+  status: pass
+
+- summary: |
+    Вход с помощью GitHub
+  status: pass
+
+- summary: |
+    Вход с помощью Discord
+  status: pass
+
+- summary: |
+    Создание игры с ботом
+  status: pass
+
+- summary: |
+    Создание игры с другим пользователем
+  status: pass
+
+- summary: |
+    Написание кода на языке С++
+  status: pass
+
+- summary: |
+    Написание кода на языке С#
+  status: pass
+
+- summary: |
+    Написание кода на языке Rudy
+  status: pass
+
+- summary: |
+    Написание кода на языке Python
+  status: pass
+
+- summary: |
+    Написание кода на языке Kotil
+  status: pass
+  
+- summary: |
+    Написание кода на языке Dart
+  status: pass
+
+- summary: |
+    Написание кода на языке Elixir
+  status: pass
+
+- summary: |
+    Написание кода на языке Php
+  status: pass
+ 
+- summary: |
+    Написание кода на языке Java
+  status: pass
+
+- summary: |
+    Написание кода на языке Clojure
+  status: pass
+
+- summary: |
+    Написание кода на языке TypeScript
+  status: pass
+
+- summary: |
+    Отображение окна кода противника
+  status: pass
+
+- summary: |
+    Отображение рейтинга у пользователя
+  status: pass
+ 
+- summary: |
+    Отображение ранга у пользователя
+  status: pass
+
+- summary: |
+    Работа редактора Vim
+  status: pass
+
+- summary: |
+    Работа чата в лобби
+  status: pass
+
+- summary: |
+    Работа чата в матче
+  status: pass
+
+- summary: |
+    Отображение завершенных игр
+  status: pass
+
+- summary: |
+    Просмотр завершенных игр
+  status: pass
+
+- summary: |
+    Добавление аватарки к профилю
+  status: pass
+ 
+- summary: |
+    Смена аватарки в профилю
+  status: fail
