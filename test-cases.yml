@@ -65,6 +65,23 @@
     Пользователь должен успешно войти c помощью профиля Github
 
 - summary: |
+    Отвязка Github от аккаунта Codebattle
+  requirement: |
+    Пользователь должен иметь возможность отвязать Github от аккаунта Codebattle
+  prerequisites: |
+    Осуществлен вход в профиль
+    Открыта страница лобби
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Нажать на свой никнейм на верхней панели сайта
+    - В открывшемся окне нажать на кнопку "Settings"
+    - На открывшейся странице нажать на кнопку "UnLink Github"
+  expected-result: |
+    Профиль Codebattle должен отвязаться от Github
+
+- summary: |
     Вход с помощью Discord
   requirement: |
     Пользователь должен иметь возможность войти через профиль Discord
@@ -438,8 +455,8 @@
     https://codebattle.hexlet.io/#lobby
     Email = YA@yandex.ru Пароль = password
   steps:
-    - Нажать на свой ник на верхней панели сайта
-    - Нажать на кнопку "My Profile"
+    - Нажать на свой никнейм на верхней панели сайта
+    - В открывшемся окне нажать на кнопку "My Profile"
     - На открывшейся странице нажать на окно аватарки
     - Добавить любое изображение с компьютера
   expected-result: |
