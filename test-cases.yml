@@ -1,11 +1,12 @@
 ---
 - summary: |
-    Проверка регистрации пользователя
+    Регистрации пользователя
   requirement: |
     Пользователь должен иметь возможность зарегистрироваться
   prerequisites: |
     Открыта страница регистрации пользователя
   test-data: |
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F
     Никнейм = ilonaMask Email = YA@yandex.ru Пароль = password
   steps:
     - Вводим никнейм
@@ -15,29 +16,15 @@
     - Нажимаем кнопку «Submit»
   expected-result: |
     Пользователь должен успешно зарегистрироваться
-
-- summary: |
-    Проверка создания игры с ботом
-  requirement: |
-    Пользователь должен иметь возможность играть с ботом
-  prerequisites: |
-    Осуществлен вход в профиль
-  test-data: |
-    Никнейм = ilonaMask Пароль = password
-  steps:
-    - Нажимаем кнопку "CREATE A GAME" 
-    - Выбираем Game Type "With a bot"
-    - Нажимаем кнопку "Create battle"
-  expected-result: |
-    Должна создаться игра с ботом
     
 - summary: |
-    Проверка создания игры с пользователем
+    Указание никнейма
   requirement: |
-    Пользователь должен иметь возможность играть с другими пользователями
+    Пользователь должен иметь возможность указать свой никнейм
   prerequisites: |
     Открыта страница регистрации пользователя
   test-data: |
+    https://codebattle.hexlet.io/users/new?locale=en&next=%2F
     Никнейм = ilonaMask Email = YA@yandex.ru Пароль = password
   steps:
     - Вводим никнейм
@@ -46,19 +33,414 @@
     - Вводим пароль
     - Нажимаем кнопку «Submit»
   expected-result: |
-    Пользователь должен учпешно зарегестрироваться
+    На верхней панели сайта должен отображается никнейм пользователя
+
+- summary: |
+    Вход пользователя
+  requirement: |
+    Пользователь должен иметь возможность войти в свой профиль
+  prerequisites: |
+    Открыта страница входа пользователя
+  test-data: |
+    https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Вводим Email
+    - Вводим пароль
+    - Нажимаем кнопку «Submit»
+  expected-result: |
+    Пользователь должен успешно войти в профиль
     
 - summary: |
-    Проверка возмжности писать на языке Kotil
+    Вход с помощью GitHub
   requirement: |
-    Пользователь должен иметь возможность писать на языке Kotlin
-  prerequisites:
+    Пользователь должен иметь возможность войти через профиль GitHub
+  prerequisites: |
+    Открыта страница входа пользователя
+  test-data: |
+    https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+  steps:
+    - Нажимаем кнопку "Sing in with Github"
+  expected-result: |
+    Пользователь должен успешно войти c помощью профиля Github
+
+- summary: |
+    Вход с помощью Discord
+  requirement: |
+    Пользователь должен иметь возможность войти через профиль Discord
+  prerequisites: |
+    Открыта страница входа пользователя
+  test-data: |
+    https://codebattle.hexlet.io/session/new?locale=en&next=%2F
+  steps:
+    - Нажимаем кнопку "Sing in with Discord"
+  expected-result: |
+    Пользователь должен успешно войти c помощью профиля Diskord
+
+- summary: |
+    Создание игры с ботом
+  requirement: |
+    Пользователь должен иметь возможность играть с ботом
+  prerequisites: |
+    Осуществлен вход в профиль
+    Открыта страница лобби
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Нажимаем кнопку "CREATE A GAME" 
+    - Выбираем Game Type "With a bot"
+    - Нажимаем кнопку "Create battle"
+  expected-result: |
+    Должна создаться игра с ботом
+    
+- summary: |
+    Создание игры с другим пользователем
+  requirement: |
+    Пользователь должен иметь возможность играть с другими пользователями
+  prerequisites: |
+    Осуществлен вход в профиль
+    Открыта страница лобби
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Нажимаем кнопку "CREATE A GAME" 
+    - Выбираем Game Type "With other users"
+    - Нажимаем кнопку "Create battle"
+  expected-result: |
+    Должна создаться игра с другим пользователем
+
+- summary: |
+    Написание кода на языке С++
+  requirement: |
+    Пользователь должен иметь возможность писать на языке С++
+  prerequisites: |
+    Осуществлен вход в профиль
     Создана игра с ботом
   test-data: |
-    Логин = Логин = hexlet Пароль = badpass
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
   steps:
-    - Вводим логин
-    - Вводим пароль
-    - Нажимаем кнопку «Войти»
+    - Нажимаем на окно указания языка программирования
+    - Нажимаем в открывшемся окне на язык "С++ 20"
   expected-result: |
-    Пользователь должен попасть на главную страницу
+    Язык написания кода сменился на С++
+    
+- summary: |
+    Написание кода на языке С#
+  requirement: |
+    Пользователь должен иметь возможность писать на языке С#
+  prerequisites: |
+    Осуществлен вход в профиль
+    Создана игра с ботом
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Нажимаем на окно указания языка программирования
+    - Нажимаем в открывшемся окне на язык "С# 6.0.100"
+  expected-result: |
+    Язык написания кода сменился на С#
+
+- summary: |
+    Написание кода на языке Rudy
+  requirement: |
+    Пользователь должен иметь возможность писать на языке Rudy
+  prerequisites: |
+    Осуществлен вход в профиль
+    Создана игра с ботом
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Нажимаем на окно указания языка программирования
+    - Нажимаем в открывшемся окне на язык "Rudy 3.1.2"
+  expected-result: |
+    Язык написания кода сменился на Rudy
+
+- summary: |
+    Написание кода на языке Python
+  requirement: |
+    Пользователь должен иметь возможность писать на языке Python
+  prerequisites: |
+    Осуществлен вход в профиль
+    Создана игра с ботом
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Нажимаем на окно указания языка программирования
+    - Нажимаем в открывшемся окне на язык "Python 3.10.6"
+  expected-result: |
+    Язык написания кода сменился на Python
+    
+- summary: |
+    Написание кода на языке Kotil
+  requirement: |
+    Пользователь должен иметь возможность писать на языке Kotlin
+  prerequisites: |
+    Осуществлен вход в профиль
+    Создана игра с ботом
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Нажимаем на окно указания языка программирования
+    - Нажимаем в открывшемся окне на язык "Kotlin 1.6.21"
+  expected-result: |
+    Язык написания кода сменился на Kotlin
+
+- summary: |
+    Написание кода на языке Dart
+  requirement: |
+    Пользователь должен иметь возможность писать на языке Dart
+  prerequisites: |
+    Осуществлен вход в профиль
+    Создана игра с ботом
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Нажимаем на окно указания языка программирования
+    - Нажимаем в открывшемся окне на язык "Dart 2.17.6"
+  expected-result: |
+    Язык написания кода сменился на Dart
+
+- summary: |
+    Написание кода на языке Elixir
+  requirement: |
+    Пользователь должен иметь возможность писать на языке Elixir
+  prerequisites: |
+    Осуществлен вход в профиль
+    Создана игра с ботом
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Нажимаем на окно указания языка программирования
+    - Нажимаем в открывшемся окне на язык "Elixir 1.14.4"
+  expected-result: |
+    Язык написания кода сменился на Elixir
+    
+- summary: |
+    Написание кода на языке Php
+  requirement: |
+    Пользователь должен иметь возможность писать на языке Php
+  prerequisites: |
+    Осуществлен вход в профиль
+    Создана игра с ботом
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Нажимаем на окно указания языка программирования
+    - Нажимаем в открывшемся окне на язык "Php 8.1.8"
+  expected-result: |
+    Язык написания кода сменился на Php
+    
+- summary: |
+    Написание кода на языке Java
+  requirement: |
+    Пользователь должен иметь возможность писать на языке Java
+  prerequisites: |
+    Осуществлен вход в профиль
+    Создана игра с ботом
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Нажимаем на окно указания языка программирования
+    - Нажимаем в открывшемся окне на язык "Java 18"
+  expected-result: |
+    Язык написания кода сменился на Java
+    
+- summary: |
+    Написание кода на языке Clojure
+  requirement: |
+    Пользователь должен иметь возможность писать на языке Clojure
+  prerequisites: |
+    Осуществлен вход в профиль
+    Создана игра с ботом
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Нажимаем на окно указания языка программирования
+    - Нажимаем в открывшемся окне на язык "Clojure 1.11.2.1"
+  expected-result: |
+    Язык написания кода сменился на Clojure
+    
+- summary: |
+    Написание кода на языке TypeScript
+  requirement: |
+    Пользователь должен иметь возможность писать на языке TypeScript
+  prerequisites: |
+    Осуществлен вход в профиль
+    Создана игра с ботом
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Нажимаем на окно указания языка программирования
+    - Нажимаем в открывшемся окне на язык "TypeScript 4.7.4"
+  expected-result: |
+    Язык написания кода сменился на TypeScript
+    
+- summary: |
+    Отображение окна кода противника
+  requirement: |
+    Пользователи должены иметь возможность видеть окна программирования кодов друг у друга
+  prerequisites: |
+    Осуществлен вход в профиль
+    Создана игра с ботом
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Осмотреть отображающиеся окна во время матча
+  expected-result: |
+    В правом нижнем окне должно отображаться окно с кодом который пишет противник
+    
+- summary: |
+    Отображение рейтинга у пользователя
+  requirement: |
+    Пользователь должен иметь возможность видеть свой рейтинг
+  prerequisites: |
+    Осуществлен вход в профиль
+    Открыта страница лобби
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Осмотреть верхнюю панель страницы
+  expected-result: |
+    Под ником должен быть указан рейтинг пользователя
+    
+- summary: |
+    Отображение ранга у пользователя
+  requirement: |
+    Пользователь должен иметь возможность видеть свой ранг
+  prerequisites: |
+    Осуществлен вход в профиль
+    Открыта страница лобби
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Осмотреть верхнюю панель страницы
+  expected-result: |
+    Под ником должен быть указан ранг пользователя
+    
+- summary: |
+    Редактор Vim
+  requirement: |
+    Пользователь должен иметь доступ к редактору Vim во время написания написания кода
+  prerequisites: |
+    Осуществлен вход в профиль
+    Создана игра с ботом
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Нажать на кнопку "Vim"
+  expected-result: |
+    В окне написания кода должен включиться редактор Vim
+
+- summary: |
+    Чат в лобби
+  requirement: |
+    У пользователя должна быть возможность общаться с помощью чата в лобби
+  prerequisites: |
+    Осуществлен вход в профиль
+    Открыта страница лобби
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Написать текст "lol" в окне чата
+  expected-result: |
+    Написаный текст должны видеть все пользователи на странице лобби
+    
+- summary: |
+    Чат в матче
+  requirement: |
+    Пользоватетели должны иметь возможность общаться друг с другом с помощью чата во время матча
+  prerequisites: |
+    Осуществлен вход в профиль
+    Создана игра с ботом
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Написать в окне чата "Hi"
+    - Противник должен ответить "Hi"
+  expected-result: |
+    В окне чата должны отображаться сообщения обоих пользователей
+    
+- summary: |
+    Отображение завершенных игр
+  requirement: |
+    Пользователь должен иметь возможность видеть окно с завершенными играми
+  prerequisites: |
+    Осуществлен вход в профиль
+    Открыта страница лобби
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Нажать на вкладку "COMPLETED GAMES"
+  expected-result: |
+    Должно отображаться окно с завершенными играми
+    
+- summary: |
+    Просмотр завершенных игр
+  requirement: |
+    Пользователь должен иметь возможность просматривать завершенные игры
+  prerequisites: |
+    Осуществлен вход в профиль
+    Открыта страница лобби
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Нажать на вкладку "COMPLETED GAMES"
+    - Нажать на кнопку "Show" на любой оконченной игре
+  expected-result: |
+    Должен открыться записанный матч с завершенной игрой 
+ 
+- summary: |
+    Добавление аватарки к профилю
+  requirement: |
+    Пользователь должен иметь возможность добавить аватарку в свой профиль
+  prerequisites: |
+    Осуществлен вход в профиль
+    Открыта страница лобби
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Нажать на свой никнейм на верхней панели сайта
+    - В открывшемся окне нажать на кнопку "My Profile"
+    - На открывшейся странице нажать на окно аватарки
+    - Добавить любое изображение с компьютера
+  expected-result: |
+    У профиля должна отображаться аватарка
+  
+- summary: |
+    Смена аватарки в профилю
+  requirement: |
+    Пользователь должен иметь возможность менять аватарку своего профиля
+  prerequisites: |
+    Осуществлен вход в профиль
+    Открыта страница лобби
+  test-data: |
+    https://codebattle.hexlet.io/#lobby
+    Email = YA@yandex.ru Пароль = password
+  steps:
+    - Нажать на свой ник на верхней панели сайта
+    - Нажать на кнопку "My Profile"
+    - На открывшейся странице нажать на окно аватарки
+    - Добавить любое изображение с компьютера
+  expected-result: |
+    У профиля должно измениться изображение аватарки
