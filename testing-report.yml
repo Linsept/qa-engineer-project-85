@@ -16,6 +16,10 @@
   status: pass
 
 - summary: |
+    Отвязка Github от аккаунта Codebattle
+  status: fail
+
+- summary: |
     Вход с помощью Discord
   status: pass
 
